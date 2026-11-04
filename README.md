@@ -108,15 +108,3 @@ Results will go here once the board is built.
 
 Not written yet. The plan is Arduino/PlatformIO with RTClib, U8g2, and the Adafruit AHTX0 and BMP280 libraries: show the time and sensor readings, set the time with the buttons, and use deep sleep to extend battery life.
 
-## Repository layout
-
-```
-docs/          schematic and layout PDFs, images
-hardware/      Altium project files and custom footprint library
-fabrication/   Gerber files and BOM
-firmware/      (planned)
-```
-
-## License
-
-Choose a license (for example MIT) and add a LICENSE file.
