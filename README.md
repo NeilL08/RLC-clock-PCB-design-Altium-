@@ -9,10 +9,10 @@ A battery-powered ESP32 desk clock with a DS3231 real-time clock, a 2.42" I2C OL
 ![Circuit Schematic](/schematic.png)
 
 # pcb layout top layer
-![PCB Layout](/pcb-layout_topLayer.png)
+![PCB Layout](/pcb_layout_topLayer.png)
 
 # pcb layout second layer
-![PCB Layout](/pcb-layout_secondLayer.png)
+![PCB Layout](/pcb_layout_secondLayer.png)
 
 ## Status
 
