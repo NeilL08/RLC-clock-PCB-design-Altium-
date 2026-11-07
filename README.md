@@ -2,6 +2,17 @@
 
 A battery-powered ESP32 desk clock with a DS3231 real-time clock, a 2.42" I2C OLED, and an AHT20 + BMP280 temperature / humidity / pressure sensor. The board is a 2-layer PCB designed in Altium Designer.
 
+# 3D Render
+![3D Render](pcb_3d.png)
+
+# Schematic
+![Circuit Schematic](/schematic.png)
+
+# pcb layout top layer
+![PCB Layout](/pcb-layout_topLayer.png)
+
+# pcb layout second layer
+![PCB Layout](/pcb-layout_secondLayer.png)
 
 ## Status
 
