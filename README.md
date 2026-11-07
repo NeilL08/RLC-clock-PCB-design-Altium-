@@ -5,6 +5,12 @@ A battery-powered ESP32 desk clock with a DS3231 real-time clock, a 2.42" I2C OL
 # 3D Render
 ![3D Render](pcb_3d.png)
 
+# Breadboard Prototype
+
+![Breadboard prototype of the ESP32 clock](breadboard_prototype.jpg)
+
+First prototype: ESP32, DS1307 RTC, and an OLED over I2C. The PCB is an upgraded version (DS3231 RTC, sensor module, battery power circuit, button to physically set time)
+
 # Schematic
 ![Circuit Schematic](/schematic.png)
 
