@@ -1,0 +1,83 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <RTClib.h>
+#include <ESP_I2S.h>
+#include <math.h>
+
+RTC_DS3231 rtc;
+I2SClass I2S;
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+
+TwoWire I2C_RTC = TwoWire(0);
+TwoWire I2C_OLED = TwoWire(1);
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &I2C_OLED, OLED_RESET);
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  I2C_OLED.begin(6,5);
+  I2C_RTC.begin(4,15);
+
+  // SCK -> GPIO 47
+  // WS  -> GPIO 21
+  // SD  -> GPIO 20
+  I2S.setPins(47,21,-1,20,-1);
+
+  if(!I2S.begin(
+    I2S_MODE_STD,
+    16000,
+    I2S_DATA_BIT_WIDTH_32BIT,
+    I2S_SLOT_MODE_MONO)){
+      Serial.println("I2S intialization failed!");
+      while(true){
+        delay(1000);
+      }
+    }
+
+  if(!display.begin(SSD1306_SWITCHCAPVCC,0x3C)){
+    while(1);
+  }
+  if(!rtc.begin(&I2C_RTC)){
+    while(1);
+  }
+
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(SSD1306_WHITE);
+  //rtc.adjust(DateTime(2026,10,29,16,14,20));  
+
+  Serial.println("everything is set up");
+
+
+
+}
+
+void loop() {
+  DateTime now = rtc.now();
+  display.clearDisplay();
+  display.setCursor(0,0);
+  if((now.hour()<10)){
+    display.print("0");
+  }
+  display.print(now.hour());
+  display.print(":");
+  if((now.minute()<10)){
+    display.print("0");
+  }
+  display.print(now.minute());
+  display.print(":");
+  if((now.second()<10)){
+    display.print("0");
+  }
+  display.print(now.second());
+  display.display();
+  delay(1000);
+
+
+
+}
